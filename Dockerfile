@@ -7,4 +7,6 @@ COPY . .
 RUN npm run build
 
 FROM nginx
+# Required for AWS to expose the port. Does nothing locally.
+EXPOSE 80
 COPY --from=builder /usr/app/dist /usr/share/nginx/html
